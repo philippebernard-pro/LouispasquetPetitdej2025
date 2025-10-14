@@ -23,6 +23,22 @@
             color: white;
             padding: 60px 20px;
             text-align: center;
+            position: relative;
+        }
+        
+        .header-logo {
+            position: absolute;
+            height: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .header-logo.left {
+            left: 20px;
+        }
+        
+        .header-logo.right {
+            right: 20px;
         }
         
         .header h1 {
@@ -244,6 +260,10 @@
                 font-size: 1.8em;
             }
             
+            .header-logo {
+                display: none;
+            }
+            
             .section {
                 padding: 20px;
             }
@@ -256,6 +276,8 @@
 </head>
 <body>
     <div class="header">
+        <img src="/images/logoacablanc.png" alt="Logo Académie" class="header-logo left">
+        <img src="/images/logolyceeblanc.png" alt="Logo Lycée Pasquet" class="header-logo right">
         <div class="container">
             <h1>Petit Déjeuner de Travail</h1>
             <p style="font-size: 1.3em;">Lycée Pasquet & Entreprises</p>
