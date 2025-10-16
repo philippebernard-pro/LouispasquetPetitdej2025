@@ -19,26 +19,45 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #6a9ef7 100%);
             color: white;
             padding: 60px 20px;
-            text-align: center;
             position: relative;
+            /* plus de flex ici : on utilise .header-inner pour le layout */
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex; /* utilisation de flexbox pour le layout */
+            align-items: center;
+            justify-content: flex-start; /* logos à gauche */
+            padding: 0 20px; /* garde l'espace latéral dans le conteneur */
+        }
+        
+        .header-logos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start; /* déjà présent : garde les logos à gauche */
+            height: 320px; /* 2 hauteurs de 150px + 20px d'espace */
+            margin-right: 30px;
         }
         
         .header-logo {
-            position: absolute;
-            height: 200px;
-            top: 50%;
-            transform: translateY(-50%);
+            /* chaque logo a une hauteur fixe, prend sa largeur naturelle et reste aligné à gauche de la box */
+            height: 150px;
+            max-height: 150px;
+            width: auto;               /* --> laisser la largeur naturelle, pas 100% */
+            object-fit: contain;
+            object-position: left center; /* aligne le contenu de l'image à gauche si utile */
+            display: block;
+            align-self: flex-start;    /* assure l'alignement à gauche dans le conteneur flex */
         }
         
-        .header-logo.left {
-            left: 20px;
-        }
-        
-        .header-logo.right {
-            right: 20px;
+        .header-content {
+            flex: 1;
+            text-align: center;
         }
         
         .header h1 {
@@ -65,10 +84,27 @@
         
         .section {
             background: white;
-            margin: 40px auto;
-            padding: 40px;
+            margin: 30px auto;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .section_intro {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* figure à droite : permet au texte de s'enrouler autour */
+        .intro-figure {
+            float: right;
+            background: transparent;
+        }
+
+        .intro-figure img {
+            display: block;
+            width: 100%;
+            height: 150px;           /* hauteur demandée */
+            object-fit: cover;
         }
         
         .section h2 {
@@ -77,6 +113,8 @@
             font-size: 2em;
             border-bottom: 3px solid #2a5298;
             padding-bottom: 10px;
+            /* nouveau : fond blanc semi-transparent pour lisibilité sur image */
+            background-color: rgba(255,255,255,0.5);
         }
         
         .section h3 {
@@ -84,6 +122,8 @@
             margin-top: 30px;
             margin-bottom: 15px;
             font-size: 1.5em;
+            /* nouveau : fond blanc semi-transparent pour lisibilité sur image */
+            background-color: rgba(255,255,255,0.5);
         }
         
         .programme {
@@ -255,13 +295,46 @@
             margin-top: 40px;
         }
         
+        /* utilitaire pour paragraphes : cohérence typographique et espacement */
+        .p {
+            font-size: 1.1em;    /* même taille que l'ancien inline style */
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+            text-justify: inter-word;
+            /*margin: 1em 0;*/
+            /* options utiles selon besoin :
+               background-color: rgba(255,255,255,0.5); padding: .4em .6em; border-radius: 6px;
+               — à activer sur les paragraphes à rendre plus lisibles sur image */
+        }
+        
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
+            .header-inner {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-logos {
+                flex-direction: row;
+                margin-right: 0;
+                margin-bottom: 20px;
+                height: auto;
+                gap: 20px;
+                align-items: center;
             }
             
             .header-logo {
-                display: none;
+                height: 100px;
+                max-height: 100px;
+                width: auto;
+            }
+            
+            .header-content {
+                width: 100%;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
             }
             
             .section {
@@ -271,57 +344,77 @@
             .benefits {
                 grid-template-columns: 1fr;
             }
+            .intro-figure {
+                float: none;
+                display: block;
+                margin: 0 0 16px 0;
+            }
+            .intro-figure img {
+                height: 200px;
+            }
+            .section_intro {
+                /* taille réduite sur mobile */
+                background-position: top 14px right 14px bottom 14px;
+                background-size: auto 100px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="./images/logoacablanc.png" alt="Logo Académie" class="header-logo left">
-        <img src="./images/logolyceeblanc.png" alt="Logo Lycée Pasquet" class="header-logo right">
-        <div class="container">
-            <h1>Petit Déjeuner de Travail</h1>
-            <p style="font-size: 1.3em;">Lycée Pasquet & Entreprises</p>
-            <div class="date-badge">
-                📅 Jeudi 13 novembre 2025 à 8h30
+        <div class="container header-inner">
+            <div class="header-logos">
+                <img src="./images/logoacablanc.png" alt="Logo Académie" class="header-logo">
+                <img src="./images/logolyceeblanc.png" alt="Logo Lycée Pasquet" class="header-logo">
             </div>
-            <p style="margin-top: 20px; font-size: 1.1em;">
-                Lycée Louis Pasquet<br>
-                54 boulevard Marcellin Berthelot, 13200 Arles
-            </p>
+            <div class="header-content">
+                <h1>Petit Déjeuner de Travail</h1>
+                <p style="font-size: 1.3em;">Lycée Pasquet & Entreprises</p>
+                <div class="date-badge">
+                    📅 Jeudi 13 novembre 2025 à 8h30
+                </div>
+                <p style="margin-top: 20px; font-size: 1.1em;">
+                    Lycée Louis Pasquet<br>
+                    54 boulevard Marcellin Berthelot, 13200 Arles
+                </p>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="section">
-            <h2>Pourquoi ce rendez-vous ?</h2>
-            <p style="font-size: 1.1em;">
-                Dans le cadre de notre collaboration avec les entreprises qui accueillent nos étudiants et celles avec lesquelles nous souhaitons développer des partenariats pour les stages et l'alternance, nous avons le plaisir de vous inviter à un moment d'échange privilégié.
-            </p>
+        <div class="section section_intro" id="section_intro">
+            <h2>Retrouvons-nous autour d'un café</h2>
+            <!-- nouvelle boîte image alignée à droite pour permettre l'enroulement du texte -->
+            <div class="intro-figure">
+                <img src="./images/coffee1.jpeg" alt="Café">
+            </div>
+            <p class="p">
+                Dans le cadre de notre collaboration avec les entreprises qui accueillent ou accueilleront nos étudiants et nos apprentis, nous avons le plaisir de vous inviter à un moment d'échange privilégié.
+            </p><br>
+            <p class="p">
+                <strong>Au programme :</strong> un petit déjeuner convivial, une visite guidée de nos plateaux techniques, rencontres, un point sur l'alternance avec le GRETA.
         </div>
 
         <div class="section">
             <h2>Au programme de cette matinée</h2>
             <div class="programme">
                 <div class="programme-item">
-                    <strong>8h30 - 9h00 : Accueil et petit déjeuner convivial</strong>
-                    Moment d'échange informel entre professionnels
+                    <strong>8h30 - 9h15 : Accueil et petit déjeuner convivial</strong>
+                    Moment d'échange informel entre professionnels<br>
+                    Rapide discours de bienvenue<br>
+                    Point sur l'apprentissage au lycée Louis Pasquet
                 </div>
                 <div class="programme-item">
-                    <strong>9h00 - 10h00 : Visite guidée des plateaux techniques</strong>
-                    Découverte des équipements et des espaces de formation<br>
-                    Échanges avec les professeurs dans leurs ateliers<br>
+                    <strong>9h15 - 10h15 : Visite guidée des plateaux techniques</strong>
+                    Découverte des équipements et des espaces de formation de nos BTS<br>
+                    Échanges avec les professeurs et les étudiants dans leurs ateliers<br>
                     Présentation des compétences développées par nos étudiants
                 </div>
                 <div class="programme-item">
-                    <strong>10h00 - 10h30 : Point alternance avec le GRETA</strong>
+                    <strong>10h15 - 10h30 : Point alternance avec le GRETA-CFA Provence</strong>
                     Modalités de l'apprentissage<br>
                     Accompagnement des entreprises<br>
                     Questions pratiques
-                </div>
-                <div class="programme-item">
-                    <strong>10h30 - 11h00 : Rencontre avec nos futurs bacheliers (optionnel)</strong>
-                    Présentation de vos métiers et opportunités<br>
-                    Échanges avec les élèves de Terminale STI2D
                 </div>
             </div>
         </div>
@@ -357,10 +450,6 @@
             <h2>Pourquoi participer ?</h2>
             <div class="benefits">
                 <div class="benefit-item">
-                    <strong>Recruter</strong>
-                    <p>Vos futurs apprentis ou stagiaires</p>
-                </div>
-                <div class="benefit-item">
                     <strong>Échanger</strong>
                     <p>Avec les formateurs sur les compétences</p>
                 </div>
@@ -374,7 +463,7 @@
                 </div>
                 <div class="benefit-item">
                     <strong>Présenter</strong>
-                    <p>Vos métiers aux futurs diplômés</p>
+                    <p>Vos métiers aux futurs diplômés en BTS</p>
                 </div>
                 <div class="benefit-item">
                     <strong>Développer</strong>
