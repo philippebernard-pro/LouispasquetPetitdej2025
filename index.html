@@ -30,7 +30,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex; /* utilisation de flexbox pour le layout */
-            align-items: center;
+            /*align-items: center;*/
             justify-content: flex-start; /* logos à gauche */
             padding: 0 20px; /* garde l'espace latéral dans le conteneur */
         }
@@ -41,7 +41,10 @@
             gap: 20px;
             align-items: flex-start; /* déjà présent : garde les logos à gauche */
             height: 320px; /* 2 hauteurs de 150px + 20px d'espace */
-            margin-right: 30px;
+            /* nouveau : espace vide pour équilibrer le layout */
+            flex-grow: 1;
+            max-width: 210px; /* largeur maximale pour l'espace vide */
+            
         }
         
         .header-logo {
@@ -53,11 +56,13 @@
             object-position: left center; /* aligne le contenu de l'image à gauche si utile */
             display: block;
             align-self: flex-start;    /* assure l'alignement à gauche dans le conteneur flex */
+            margin-right: 30px;
         }
-        
+
         .header-content {
             flex: 1;
             text-align: center;
+            min-width: 442px;
         }
         
         .header h1 {
@@ -259,26 +264,10 @@
             margin-right: 10px;
         }
         
-        .submit-btn {
-            background: #00278f;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background: #2a5298;
-        }
-        
         .contact-info {
             background: #00278f;
             color: white;
-            padding: 40px;
+            padding: 20px;
             text-align: center;
             border-radius: 10px;
         }
@@ -293,7 +282,7 @@
             color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
         
         /* utilitaire pour paragraphes : cohérence typographique et espacement */
@@ -379,6 +368,8 @@
                     Lycée Louis Pasquet<br>
                     54 boulevard Marcellin Berthelot, 13200 Arles
                 </p>
+            </div>
+            <div class="header-logos"> <!--espace vide pour équilibrer le layout-->
             </div>
         </div>
     </div>
@@ -504,7 +495,7 @@
 
         <div class="section" id="inscription">
             <div class="form-section">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlrytGzYuppUZuJbmdPuG7jKPJSKiq1hq6zT8eposQwWRcw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">Chargement du formulaire…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlrytGzYuppUZuJbmdPuG7jKPJSKiq1hq6zT8eposQwWRcw/viewform?embedded=true" width="100%" height="1300" frameborder="0" marginheight="0" marginwidth="0">Chargement du formulaire…</iframe>
             </div>
         </div>
 
@@ -529,21 +520,5 @@
         <p>Lycée Louis Pasquet - 54 boulevard Marcellin Berthelot - 13200 Arles</p>
         <p style="margin-top: 10px;">&copy; 2025 - Ministère de l'Éducation Nationale</p>
     </footer>
-
-    <script>
-        document.getElementById('inscriptionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Formulaire soumis ! (À connecter avec votre système d\'inscription)');
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
