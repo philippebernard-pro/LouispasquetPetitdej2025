@@ -32,6 +32,7 @@
             display: flex; /* utilisation de flexbox pour le layout */
             /*align-items: center;*/
             justify-content: flex-start; /* logos à gauche */
+            gap: 20px;
             padding: 0 20px; /* garde l'espace latéral dans le conteneur */
         }
         
@@ -288,8 +289,7 @@
         /* utilitaire pour paragraphes : cohérence typographique et espacement */
         .p {
             font-size: 1em;    /* même taille que l'ancien inline style */
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.5; /* interligne */
             text-align: justify;
             text-justify: inter-word;
             /*margin: 1em 0;*/
@@ -384,11 +384,12 @@
             
             .header-logos {
                 flex-direction: row;
-                margin-right: 0;
-                margin-bottom: 20px;
+                margin: 0 0 10px 0;
+                float: left;
                 height: auto;
                 gap: 20px;
                 align-items: center;
+                max-width: none;
             }
             
             .header-logo {
@@ -445,6 +446,21 @@
             }
 
         }
+        @media (max-width: 442px) {
+            .header-content {
+                min-width: auto;
+            }
+            .header-logos {
+                margin: 0px;
+                /*positionné à gauche de la div parente*/
+                float: left;                
+            }
+            .p {
+                font-size: 0.9em;
+            }
+
+        }
+
     </style>
 </head>
 <body>
@@ -625,7 +641,7 @@
                 <h2 style="color: white; border: none;">📇 Contact</h2> 
                 <p><strong>Philippe Bernard</strong></p>
                 <p>Directeur Délégué aux Formations Professionnelles et Technologiques</p>
-                <p>📧 ddfpt.lyc.pasquet@ac-aix-marseille.fr  📞 04.90.18.35.09</p>
+                <p>📧 ddfpt.lyc.pasquet@ac-aix-marseille.fr<br>📞 04.90.18.35.09</p>
                 <p><strong>Lycée général et technologique Louis Pasquet</strong></p>
                 <p>
                     <!-- logo site web et lien de l'établissement-->    
