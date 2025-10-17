@@ -266,7 +266,7 @@
         }
         
         .contact-info {
-            background: #00278f;
+           background: linear-gradient(135deg, #00278f 0%, #abcfff 100%);
             color: white;
             padding: 20px;
             text-align: center;
@@ -278,8 +278,8 @@
         }
         
         footer {
-            background: #00278f;
-            color: white;
+            background: #abcfff;
+            color: #2a5298;
             text-align: center;
             padding: 20px;
             margin-top: 30px;
@@ -328,7 +328,54 @@
             transform: scale(1.05);
             box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         }
-
+        .contact-picture {
+            float: right;
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-picture img {
+            margin-right: 40px;
+            width: 152px;
+            height: 152px;
+            border-radius: 100px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
+        }
+        
+        /* Modern Contact Block */
+        .contact-modern {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 30px;
+            background: linear-gradient(135deg, #00278f 0%, #abcfff 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 40px 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        /* classe affichage photo de contact positionnée à droite*/
+        .contact-modern-photo {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-modern-photo img {
+            width: 95%;
+            height: 95%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -386,6 +433,17 @@
                 height: 119px;
                 border-radius: 6px;
             }
+            .contact-modern {
+                flex-direction: column;
+                align-items: center;
+                padding: 24px 12px;
+                gap: 0px;
+            }
+            .contact-modern-photo {
+                width: 120px;
+                height: 120px;
+            }
+
         }
     </style>
 </head>
@@ -526,7 +584,7 @@
         </div>
 
         <div class="section">
-            <h2>Pourquoi participer ?</h2>
+            <h2>🦾 Pourquoi participer ?</h2>
             <div class="benefits">
                 <div class="benefit-item">
                     <strong>Échanger</strong>
@@ -557,37 +615,33 @@
             </div>
         </div>
 
-        <div class="contact-info">
-            <h2 style="color: white; border: none;">Contact</h2>
-            <p><strong>Philippe Bernard</strong></p>
-            <p>Directeur Délégué aux Formations Professionnelles et Technologiques</p>
-            <!-- lien de l'établissement sur logo lien -->
-            <p><strong>Lycée général et technologique Louis Pasquet</strong></p>
-            <p>
-                <a href="https://www.site.ac-aix-marseille.fr/lyc-pasquet/spip/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Favicon.ico.png" alt="Site Web" style="width: 24px; height: 24px;">
-                </a>
-                <!-- logo instagram et lien de l'établissement-->
-                <a href="https://www.instagram.com/lyceelouispasquet/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width: 24px; height: 24px;">
-                </a>
-            </p>
-            <p>📧 ddfpt.lyc.pasquet@ac-aix-marseille.fr</p>
-            <p>📞 04.90.18.35.09</p>
-            <!-- logo LinkedIn et lien vers mon compte-->
-            <p>
-                <a href="https://www.linkedin.com/in/philippe-bernard-men/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg" alt="LinkedIn" style="width: 96px; height: 24px;">
-                </a>
-                
-            </p>
-            
+        <div class="contact-modern">
+            <a href="https://www.linkedin.com/in/philippe-bernard-men/" target="_blank">
+                <div class="contact-modern-photo">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQFad58mmRl1Xg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705332486703?e=1762387200&amp;v=beta&amp;t=t_zlb9F2NfDSkBMDM9IgdRaj2yTUMM3zita0qGZ3I7M" alt="Philippe BERNARD">
+                </div>
+            </a>
+            <div>
+                <h2 style="color: white; border: none;">📇 Contact</h2> 
+                <p><strong>Philippe Bernard</strong></p>
+                <p>Directeur Délégué aux Formations Professionnelles et Technologiques</p>
+                <p>📧 ddfpt.lyc.pasquet@ac-aix-marseille.fr  📞 04.90.18.35.09</p>
+                <p><strong>Lycée général et technologique Louis Pasquet</strong></p>
+                <p>
+                    <!-- logo site web et lien de l'établissement-->    
+                    <a style="padding-right: 10px;" href="https://www.site.ac-aix-marseille.fr/lyc-pasquet/spip/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Favicon.ico.png" alt="Site Web" style="width: 30px; height: 30px;"></a> 
+                    <!-- logo instagram et lien de l'établissement-->
+                    <a href="https://www.instagram.com/lyceelouispasquet/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width: 30px; height: 30px;"></a>
+                </p>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>Lycée Louis Pasquet - 54 boulevard Marcellin Berthelot - 13200 Arles</p>
-        <p style="margin-top: 10px;">&copy; 2025 - Ministère de l'Éducation Nationale</p>
+        <p>Lycée général et technologique Louis Pasquet - 54 boulevard Marcellin Berthelot - 13200 Arles</p>
+        <p style="margin-top: 10px;">&copy; 2025 - Académie d'Aix-Marseille - Ministère de l'Éducation Nationale</p>
     </footer>
 </body>
 </html>
