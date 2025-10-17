@@ -158,6 +158,7 @@
             margin: 20px 0;
             border-radius: 8px;
             border-left: 5px solid #00278f;
+            position: relative; /* nécessaire pour positionner la miniature */
         }
         
         .bts-card h3 {
@@ -298,6 +299,37 @@
                — à activer sur les paragraphes à rendre plus lisibles sur image */
         }
 
+        .bts-miniature {
+            float: right;
+            background: transparent;
+            width: 210px;
+            height: 297px;
+            margin-left: 20px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: relative; /* plus absolute */
+            right: auto;
+            bottom: auto;
+        }
+        .bts-miniature a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .bts-miniature img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.1s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            border-radius: 6px;
+        }
+        .bts-miniature img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        }
+
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -347,7 +379,14 @@
                 background-position: top 14px right 14px bottom 14px;
                 background-size: auto 100px;
             }
-
+            .bts-miniature {
+                float: right;
+                display: block;
+                margin: 0 auto 16px auto;
+                width: 84px;
+                height: 119px;
+                border-radius: 6px;
+            }
         }
     </style>
 </head>
@@ -385,10 +424,7 @@
                 Dans le cadre de notre collaboration avec les entreprises qui accueillent ou accueilleront nos étudiants et nos apprentis, nous avons le plaisir de vous inviter à un petit déjeuner de travail.
             </p>
             <p class="p">Cet événement sera l'occasion de partager un moment d'échange informel entre les différents acteurs présents, d'évoquer nos perspectives de coopération et d'aborder vos besoins ainsi que ceux de nos étudiants.</p>
-            <p class="p">Vous avez actuellement un apprenti formé dans notre établissement ou vous êtes à la recherche d'un apprenti, vous pourrez échanger avec le GRETA, partenaire indissociable de la formation par alternance.</p>
-            <br>
-            <p class="p">
-                <strong>Au programme :</strong> un petit déjeuner convivial, une visite guidée de nos plateaux techniques, rencontres, un point sur l'alternance avec le GRETA.
+            <p class="p">Vous avez actuellement un apprenti formé dans notre établissement ou vous
         </div>
 
         <div class="section">
@@ -420,6 +456,11 @@
             
             <div class="bts-card">
                 <h3>🔧 BTS Maintenance des Systèmes (MS) Option Systèmes de Production</h3>
+                <div class="bts-miniature">
+                    <a href="./files/Flyer BTS MS.pdf" target="_blank">
+                        <img src="./images/miniBTSMS.png" alt="Miniature BTS MS">
+                    </a> 
+                </div>
                 <p><strong>🎯 Objectif de la formation</strong></p>
                 <p>Former des techniciens supérieurs de maintenance industrielle capables d’intervenir sur des équipements de production automatisés et pluri-technologiques.</p>
                 <p>Le diplômé assure la disponibilité, la fiabilité, la sécurité et la performance des installations. Il agit sur tout le cycle de vie du bien : <strong>maintenance corrective, préventive, améliorative, intégration de nouveaux équipements et organisation de la maintenance.</strong></p>
@@ -438,11 +479,17 @@
                 <p><strong>Stage en entreprise :</strong> 10 semaines en parcours scolaire</p>
                 <p style="margin-top: 15px;"><strong>Débouchés :</strong> Technicien de maintenance, Responsable maintenance, Chef d'équipe maintenance</p>
                 <p><strong>Modalités :</strong> Formation scolaire ou en apprentissage par alternance</p>
+                <p style="text-align: right;"><a href="./files/Flyer BTS MS.pdf" target="_blank">Consulter la fiche formation</a></p>
             </div>
 
             <div class="bts-card">
                 <h3>⚙️ BTS Conception et Réalisation de Systèmes Automatiques (CRSA)</h3>
                 <p><em>Ancien BTS MAI (Mécanique et Automatismes Industriels)</em></p>
+                <div class="bts-miniature">
+                    <a href="./files/Flyer BTS CRSA.pdf.pdf" target="_blank">
+                        <img src="./images/miniBTSCRSA.png" alt="Miniature BTS CRSA">
+                    </a>
+                </div>
                 <p><strong>🎯 Objectif de la formation</strong></p>
                 <p>Former des techniciens supérieurs capables de concevoir, réaliser, installer et maintenir des systèmes automatiques destinés à automatiser les processus de production ou de service.
                 Ces systèmes combinent des <strong>technologies mécaniques, électriques, pneumatiques, hydrauliques et informatiques industrielles.</strong></p>
@@ -465,6 +512,7 @@
                 <p><strong>Stage en entreprise :</strong> 6 semaines (1ère année) en parcours scolaire</p>
                 <p style="margin-top: 15px;"><strong>Débouchés :</strong> Technicien automaticien, Technicien de conception ou d’études, Technicien en robotique ou électromécanique, Technicien de mise en service, Chargé d’affaires ou chef de projet technique (après expérience).</p>
                 <p><strong>Modalités :</strong> Formation scolaire ou en apprentissage par alternance <strong>en 2ème année</strong></p>
+                <p style="text-align: right;"><a href="./files/Flyer BTS CRSA.pdf.pdf" target="_blank">Consulter la fiche formation</a></p>
             </div>
         </div>
 
@@ -502,7 +550,7 @@
 
         <div class="section" id="inscription">
             <div class="form-section">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlrytGzYuppUZuJbmdPuG7jKPJSKiq1hq6zT8eposQwWRcw/viewform?embedded=true" width="100%" height="1300" frameborder="0" marginheight="0" marginwidth="0">Chargement du formulaire…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlrytGzYuppUZuJbmdPuG7jKPJSKiq1hq6zT8eposQwWRcw/viewform?embedded=true" width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0">Chargement du formulaire…</iframe>
             </div>
         </div>
 
