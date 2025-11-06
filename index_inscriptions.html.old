@@ -663,9 +663,9 @@
         </div>   
 
         <div class="section" id="inscription">
-            <h2>🔒 Inscriptions closes</h2>
-            <p>Les inscriptions pour cet événement sont désormais closes. Vous pouvez néanmoins nous contacter pour plus d'informations.
-                Vous trouverez nos coordonnées ci-dessous ⏬.</p>
+            <div class="form-section">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlrytGzYuppUZuJbmdPuG7jKPJSKiq1hq6zT8eposQwWRcw/viewform?embedded=true" width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0">Chargement du formulaire…</iframe>
+            </div>
         </div>
 
         <div class="contact-modern">
